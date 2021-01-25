@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间：可以对sql进行分类化管理-->
+<mapper namespace="com.xianzhi.dao.AdDao">
+
+    <select id="selectIn" parameterType="Ad" resultType="Ad">
+        select id,title,img_file_name,link,weight from ad
+        <where>
+            <if test="title!=null and title!=''">
+            title like '%' ${title} '%'
+            </if>
+        </where>
+    </select>
+</mapper>
